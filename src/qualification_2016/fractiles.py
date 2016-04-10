@@ -37,7 +37,6 @@ class Fractiles(ProblemInstance):
     def compute_index(self, chunk):
         # reverse order index
         chunk_contribution_factors = list(enumerate(reversed(chunk)))
-        #chunk_contribution = [e * self.k_pow_c[idx] for idx, e in chunk_contribution_factors]
         chunk_contribution = [self.k_pow_c[idx] * e for idx, e in chunk_contribution_factors]
         index = sum(chunk_contribution) + 1L
         return long(index)
