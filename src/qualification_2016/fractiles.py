@@ -21,7 +21,7 @@ class Fractiles(ProblemInstance):
 
     def __init__(self):
         self.k, self.c, self.s = CodeJamIO.read_int_multi()
-        self.k_pow_c = [pow(self.k, cs) for cs in range(self.c)]
+        self.k_pow_c = [pow(self.k, cs) for cs in xrange(self.c)]
 
     def solve(self):
         min_s = math.ceil(self.k / float(self.c))
@@ -36,10 +36,9 @@ class Fractiles(ProblemInstance):
 
     def compute_index(self, chunk):
         # reverse order index
-        chunk_contribution_factors = list(enumerate(reversed(chunk)))
-        chunk_contribution = [self.k_pow_c[idx] * e for idx, e in chunk_contribution_factors]
+        chunk_contribution = [self.k_pow_c[idx] * e for idx, e in enumerate(reversed(chunk))]
         index = sum(chunk_contribution) + 1L
-        return long(index)
+        return index
 
 #------------------------------------------------------------------------------
 
