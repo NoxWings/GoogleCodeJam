@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # ==============================================================================
+# Problem A. Oversized Pancake Flipper
+# https://code.google.com/codejam/contest/3264486/dashboard#s=p0
+# ==============================================================================
 from __future__ import unicode_literals
 
 

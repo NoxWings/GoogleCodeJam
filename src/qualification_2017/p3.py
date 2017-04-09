@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # ==============================================================================
+# Problem C. Bathroom Stalls
+# https://code.google.com/codejam/contest/3264486/dashboard#s=p2
+# ==============================================================================
 from __future__ import division, unicode_literals
 
 from collections import OrderedDict
