@@ -1,11 +1,9 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # ==============================================================================
 # Problem C. Bathroom Stalls
 # https://code.google.com/codejam/contest/3264486/dashboard#s=p2
 # ==============================================================================
-from __future__ import division, unicode_literals
-
 from collections import OrderedDict
 from decimal import ROUND_HALF_UP, Decimal, getcontext
 
@@ -20,14 +18,14 @@ def next_split(length):
 
 def solve():
     """Problem solution implementation."""
-    n, k = [int(x) for x in raw_input().split()]
+    n, k = [int(x) for x in input().split()]
     # optimization
     if k == n:
         return '0 0'
     # processing
     c = OrderedDict({n: 1})
-    while c.viewkeys() and k > 1:
-        length = c.iterkeys().next()  # First key == largest key
+    while c.keys() and k > 1:
+        length = next(iter(c))  # First key == largest key
         update_val = min(c[length], k - 1)
         # Update the number of steps taken
         k -= update_val
@@ -40,13 +38,13 @@ def solve():
         if c[length] == 0:
             del c[length]
 
-    l_r = next_split(c.iterkeys().next())
+    l_r = next_split(next(iter(c)))
     return '{} {}'.format(max(l_r), min(l_r))
 
 
 # ==============================================================================
 if __name__ == '__main__':
     getcontext().rounding = ROUND_HALF_UP
-    test_cases = int(raw_input())
-    for t in xrange(1, test_cases + 1):
+    test_cases = int(input())
+    for t in range(1, test_cases + 1):
         print('Case #{}: {}'.format(t, solve()))

@@ -1,10 +1,9 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # ==============================================================================
 # Problem A. Oversized Pancake Flipper
 # https://code.google.com/codejam/contest/3264486/dashboard#s=p0
 # ==============================================================================
-from __future__ import unicode_literals
 
 
 def clean_unused(p):
@@ -21,7 +20,7 @@ def count_flips(s, k):
     while s:
         if k > len(s):
             return 'IMPOSSIBLE'
-        for x in xrange(k):
+        for x in range(k):
             s[x] = not s[x]
         c += 1
         s = clean_unused(s)
@@ -30,13 +29,13 @@ def count_flips(s, k):
 
 def solve():
     """Problem solution implementation."""
-    s, k = raw_input().strip().split()
+    s, k = input().strip().split()
     s, k = [x == '+' for x in s], int(k)
     return count_flips(s, k)
 
 
 # ==============================================================================
 if __name__ == '__main__':
-    test_cases = int(raw_input())
-    for t in xrange(1, test_cases + 1):
+    test_cases = int(input())
+    for t in range(1, test_cases + 1):
         print('Case #{}: {}'.format(t, solve()))
