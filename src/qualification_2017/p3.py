@@ -11,6 +11,7 @@ from decimal import ROUND_HALF_UP, Decimal, getcontext
 def next_split(length):
     """Find next split numbers."""
     d = (length - 1) / Decimal(2)
+    # d.to_integral_value() is the "Decimal" equivalent of round(d) for "int"
     d_max = d.to_integral_value()
     d_min = int(d)
     return [d_max, d_min]
